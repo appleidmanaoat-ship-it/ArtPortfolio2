@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Ahron . Manaoat | Artist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@300;400;500;600&family=Lora:wght@400;600&display=swap');
+
+:root {
+    --font-size: 16px;
+    --background: #d3d3d3; 
+    --foreground: oklch(0.145 0 0);
+    --card: #ffffff; 
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: #030213;
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.95 0.0058 264.53);
+    --secondary-foreground: #030213;
+    --muted: #ececf0;
+    --muted-foreground: #717182;
+    --accent: #e9ebef;
+    --accent-foreground: #030213;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(0, 0, 0, 0.1);
+    --input: transparent;
+    --input-background: #f3f3f5;
+    --switch-background: #cbced4;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 1rem;
+    --highlight: var(--chart-1);
+    --highlight-foreground: var(--primary);
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: #030213;
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: #d3d3d3;
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0); 
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --highlight: var(--chart-4);
+    --highlight-foreground: var(--background);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-input-background: var(--input-background);
+    --color-switch-background: var(--switch-background);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --radius-sm: calc(var(--radius) - 8px);
+    --radius-md: calc(var(--radius) - 4px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        background-color: var(--background); 
+        @apply text-[var(--foreground)] font-['Inter',_sans-serif];
+        min-height: 100vh;
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --text-base: 1rem;
+        --text-lg: 1.125rem; 
+        --text-xl: 1.25rem; 
+        --text-2xl: 1.5rem; 
+        --text-3xl: 1.875rem; 
+        --text-4xl: 2.25rem; 
+        --text-5xl: 3rem; 
+    }
+}
+
+@layer base {
+    :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        h1 { font-size: var(--text-5xl); font-weight: var(--font-weight-medium); line-height: 1.1; letter-spacing: -0.02em; }
+        h2 { font-size: var(--text-4xl); font-weight: var(--font-weight-medium); line-height: 1.2; }
+        h3 { font-size: var(--text-3xl); font-weight: var(--font-weight-medium); line-height: 1.3; }
+        h4 { font-size: var(--text-2xl); font-weight: var(--font-weight-medium); line-height: 1.4; }
+        p { font-size: var(--text-lg); font-weight: var(--font-weight-normal); line-height: 1.7; }
+        label { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+        button { font-size: var(--text-base); font-weight: var(--font-weight-medium); line-height: 1.5; }
+        input { font-size: var(--text-base); font-weight: var(--font-weight-normal); line-height: 1.5; }
+    }
+    
+    #about .max-w-4xl p {
+        font-family: 'Lora', serif;
+        font-weight: 400;
+    }
+}
+    
+.bg-card { background-color: var(--card); }
+.text-card-foreground { color: var(--card-foreground); }
+.bg-primary { background-color: var(--primary); }
+.text-primary-foreground { color: var(--primary-foreground); }
+.bg-accent { background-color: var(--accent); }
+.text-accent-foreground { color: var(--accent-foreground); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.border-border { border-color: var(--border); }
+.rounded-lg { border-radius: var(--radius); }
+.input-background { background-color: var(--input-background); }
+
+.bg-highlight { background-color: var(--highlight); }
+.text-highlight-foreground { color: var(--highlight-foreground); }
+.text-highlight { color: var(--highlight); }
+
+.artist-card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.artist-card-shadow:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.15), 0 0 0 4px var(--highlight);
+}
+.dark .artist-card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.05);
+}
+.dark .artist-card-shadow:hover {
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.5), 0 0 0 4px var(--highlight);
+}
+
+.btn-primary-hover {
+    box-shadow: 0 8px 15px -5px rgba(3, 2, 19, 0.4);
+    transition: all 0.3s ease;
+}
+.btn-primary-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -5px var(--highlight), 0 0 0 3px var(--highlight);
+}
+.dark .btn-primary-hover:hover {
+    box-shadow: 0 12px 25px -5px var(--highlight), 0 0 0 3px var(--highlight);
+}
+
+.site-background {
+
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIwAAAABJRU5ErkJggg=='); 
+    
+    background-color: var(--background);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.site-background::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    transition: background-color 0.5s;
+    background-color: rgba(255, 255, 255, 0.85); 
+}
+.dark .site-background::after {
+    background-color: rgba(3, 2, 19, 0.90);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card);
+    border-radius: var(--radius);
+    max-width: 90%;
+    max-height: 90%;
+    width: 700px;
+    padding: 2rem;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-image {
+    max-height: 60vh;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: var(--radius);
+}
+
+.dark .modal-content {
+    background-color: oklch(0.145 0 0); 
+    color: oklch(0.985 0 0);
+}
+</style>
+</head>
+<body class="transition-colors duration-500">
+    <header class="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/50 transition-colors duration-500">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="#hero" class="text-2xl font-bold tracking-tight bg-primary text-primary-foreground px-3 py-1 rounded-lg">
+                Draftsman's Portfolio
+            </a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#about" class="hover:text-primary transition-colors">Bio</a>
+                <a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+
+        <section id="hero" class="min-h-[70vh] flex items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight">
+                        Joshua Ahron B. Manaoat<br>
+                        <span class="text-2xl text-muted-foreground font-medium block mt-2">Draftsman</span>
+                    </h1>
+                    <p class="text-xl max-w-lg">
+                        “Silence Speaks in Tones of Grey”
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                        <a href="#portfolio" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium text-center transition-all duration-300 btn-primary-hover">
+                            View Portfolio
+                        </a>
+                        <a href="#contact" class="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium text-center transition-all duration-300 hover:bg-primary/10">
+                            Message Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <img
+                        src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.15752-9/590293478_1823899628297298_8442543546884686679_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=IXYL-GZeo3sQ7kNvwE5qXd8&_nc_oc=AdmOi0g8apkvHyfXxo2i-DvVE_IVtayAh7IKc8Zo59Z55eKRR3V0IKKTWrhpuVbiaS8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&oh=03_Q7cD3wFccQn0IWu_dH-SkuBEsclNjca8TTQBM-PUI7TBhOD9ow&oe=695153D3"
+                        alt="Joshua Manaoat Profile Picture"
+                        class="w-full h-auto object-cover rounded-lg shadow-xl border-border border-2 transform hover:scale-[1.01] transition-transform duration-500"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="pt-16">
+            <h2 class="text-center mb-12 text-4xl font-extrabold text-primary">Artist Statement</h2>
+            <div class="max-w-4xl mx-auto p-8 rounded-lg shadow-xl border-border border-2 bg-gray-100 dark:bg-gray-800 space-y-6 text-lg transition-all duration-500">
+            <p>
+                    I am an aspiring artist, currently studying in University of the Cordilleras, I do arts and animations as my part time work or hobby since I am at elementary school.
+
+I love making artworks like portraits, charcoal drawings, animating, graphic designing, editing, and many more. I was at early age when I discovered that I am good at drawing or arts, I participate in some competitions in my past schools and won some awards, you can rest assured that I'm good on what I do. In addition, I give my best effort in this workplace.
+                </p>
+                <p>
+I am inspired to make art by the concept of exploration, which means I wanted to make new things or things that I could improve upon. Seeing others produce amazing works of art makes me want to work even harder and improve at everything I do. I believe that different artists use different materials based on how they produce their work and express themselves. After considering all my experiences as an artist, I believe that people's differing viewpointss do have an impact on art itself. For this reason, I express myself through my artwork and allow audiences to understand and perceive my story.
+                </p>
+            </div>
+        </section>
+        
+        <section id="portfolio" class="pt-16">
+            <h2 class="text-center mb-12 text-4xl font-extrabold text-primary">Latest Works</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer" 
+                    data-title="Cloth" 
+                    data-medium="Traditional Drawing 1, 2023"
+                    data-description="A detailed study of drapery, focusing on the interplay of light and shadow to define texture and volume. Rendered in charcoal, this piece emphasizes realistic folds and creases."
+                    data-image-src="https://scontent.fcrk2-3.fna.fbcdn.net/v/t1.15752-9/590759054_2625963684432302_2019494793753516819_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=YTbwnkZl0UAQ7kNvwEedq-T&_nc_oc=Adke5E7gKzgpvoiWblucGaw5vPwXnsqxUV-sPuq8aq35V7brubFEp4N8lcMChE10H_Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-3.fna&oh=03_Q7cD3wGt9yVcRpOi--gZZnMN1lDEJqbezP1l5Proeec7ogVcDg&oe=69514FE7"
+                    >
+                    <img
+                        src="https://scontent.fcrk2-3.fna.fbcdn.net/v/t1.15752-9/590759054_2625963684432302_2019494793753516819_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=YTbwnkZl0UAQ7kNvwEedq-T&_nc_oc=Adke5E7gKzgpvoiWblucGaw5vPwXnsqxUV-sPuq8aq35V7brubFEp4N8lcMChE10H_Q&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-3.fna&oh=03_Q7cD3wGt9yVcRpOi--gZZnMN1lDEJqbezP1l5Proeec7ogVcDg&oe=69514FE7"
+                        alt="Drapery artwork"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+1'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">Cloth</h3>
+                    <p class="text-sm text-muted-foreground">Traditional Drawing 1, 2023</p>
+                </div>
+
+    <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer"
+                    data-title="David" 
+                    data-medium="Traditional Drawing 2, 2023"
+                    data-description="A mixed media portrait combining charcoal and graphite on toned paper. This piece explores the classicism of figure drawing with a contemporary expressive technique."
+                    data-image-src="https://scontent.fcrk2-1.fna.fbcdn.net/v/t1.15752-9/584881033_3744100072560983_1992656782942543840_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=Whba-WiEoeYQ7kNvwF2I_JO&_nc_oc=AdmDPnpiZGa9GqdAhxSN0Fkv1w4ScpICteJkNk4H3rORgDVes5RMerOrlpA7oeSIPF8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-1.fna&oh=03_Q7cD3wGmMknIePgJBOASpZoZwpumhjZ91GjZ9LC61zvAnmt1lQ&oe=69513E43"
+                    >
+                    <img
+                        src="https://scontent.fcrk2-1.fna.fbcdn.net/v/t1.15752-9/584881033_3744100072560983_1992656782942543840_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=Whba-WiEoeYQ7kNvwF2I_JO&_nc_oc=AdmDPnpiZGa9GqdAhxSN0Fkv1w4ScpICteJkNk4H3rORgDVes5RMerOrlpA7oeSIPF8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-1.fna&oh=03_Q7cD3wGmMknIePgJBOASpZoZwpumhjZ91GjZ9LC61zvAnmt1lQ&oe=69513E43"
+                        alt="Mixed Media Portrait artwork"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+2'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">David</h3>
+                    <p class="text-sm text-muted-foreground">Traditonal Drawing 2, 2023</p>
+                </div>
+
+                <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer"
+                    data-title="Crumpled Paper" 
+                    data-medium="Traditional Drawing 3, 2023"
+                    data-description="An exercise in form and texture, demonstrating the challenging representation of a crumpled sheet of paper. The high contrast highlights the intricate folds and planes."
+                    data-image-src="https://scontent.fcrk2-2.fna.fbcdn.net/v/t1.15752-9/589556053_1725266381485929_4874391391168640342_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=-9NoEDMz3TAQ7kNvwHEWwRm&_nc_oc=AdkA-NHXDdMEIK7GgUgKPbWQ4dDyBj8Unc7oXwa2Q_xJ-dK5sm904wqN3koUIN5jLVM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-2.fna&oh=03_Q7cD3wETFwDH8xjXV_MSiHDyM8ziywzgW2aTDLLJAaOKO47lXw&oe=69514CE5"
+                    >
+                    <img
+                        src="https://scontent.fcrk2-2.fna.fbcdn.net/v/t1.15752-9/589556053_1725266381485929_4874391391168640342_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=-9NoEDMz3TAQ7kNvwHEWwRm&_nc_oc=AdkA-NHXDdMEIK7GgUgKPbWQ4dDyBj8Unc7oXwa2Q_xJ-dK5sm904wqN3koUIN5jLVM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-2.fna&oh=03_Q7cD3wETFwDH8xjXV_MSiHDyM8ziywzgW2aTDLLJAaOKO47lXw&oe=69514CE5"
+                        alt="Geometric Shapes artwork"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+3'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">Crumpled Paper</h3>
+                    <p class="text-sm text-muted-foreground">Traditional Drawing 3, 2023</p>
+                </div>
+
+                <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer"
+                    data-title="Detailing" 
+                    data-medium="Traditional Drawing 4, 2023"
+                    data-description="A macro focus piece, highlighting the intricate details of an organic subject. This work showcases precision in line work and subtle gradations of tone."
+                    data-image-src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t1.15752-9/593427713_1631219278262044_2181736144045899108_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=DxsECbXrKkkQ7kNvwE950Y9&_nc_oc=AdlQC7jX-BFNAyW8vhRYa6SCf7N-fy6rrZa--LThtwSFogspLBnvHEoGVlDYHkRIyMs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&oh=03_Q7cD4AFPiIJaj4CLuIPgjUw1VWvWr4JboF3GLxH_yhoixRppvw&oe=6957DCF3"
+                    >
+                    <img
+                        src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t1.15752-9/593427713_1631219278262044_2181736144045899108_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=DxsECbXrKkkQ7kNvwE950Y9&_nc_oc=AdlQC7jX-BFNAyW8vhRYa6SCf7N-fy6rrZa--LThtwSFogspLBnvHEoGVlDYHkRIyMs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&oh=03_Q7cD4AFPiIJaj4CLuIPgjUw1VWvWr4JboF3GLxH_yhoixRppvw&oe=6957DCF3"
+                        alt="Cosmic Landscape artwork"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+4'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">Detailing</h3>
+                    <p class="text-sm text-muted-foreground">Traditional Drawing 4, 2023</p>
+                </div>
+
+                <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer"
+                    data-title="Facial Structure Study" 
+                    data-medium="Traditional Drawing 5, 2024"
+                    data-description="A foundational study in human anatomy, focusing specifically on the planes and structure of the face. This piece uses stark shading to emphasize bone structure and form."
+                    data-image-src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t1.15752-9/591264201_685066427814886_4038617315821453254_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MqgIG7o4ttkQ7kNvwFrEEpO&_nc_oc=Adk0z6wU5erqFQsl3iFvCn9pBHVHcHDB0a-9O3NnqCOHt4TohjM_4x4-vgDXoLM03b4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&oh=03_Q7cD4AGTCRgudcxJHlaul9cZ_gVBiuJPbbNmY6ca5vJiPSegWQ&oe=6957C4FE"
+                    >
+                    <img
+                        src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t1.15752-9/591264201_685066427814886_4038617315821453254_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=0024fc&_nc_ohc=MqgIG7o4ttkQ7kNvwFrEEpO&_nc_oc=Adk0z6wU5erqFQsl3iFvCn9pBHVHcHDB0a-9O3NnqCOHt4TohjM_4x4-vgDXoLM03b4&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&oh=03_Q7cD4AGTCRgudcxJHlaul9cZ_gVBiuJPbbNmY6ca5vJiPSegWQ&oe=6957C4FE"
+                        alt="Monochrome Sketch artwork"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+5'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">Facial Structure Study</h3>
+                    <p class="text-sm text-muted-foreground">Traditional Drawing 5, 2024</p>
+                </div>
+
+                <div class="art-piece bg-card p-4 rounded-lg shadow-md border-border border transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-ring/50 cursor-pointer"
+                    data-title="Ana Kroft" 
+                    data-medium="Traditional Drawing 6, 2025"
+                    data-description="A character design concept piece. This drawing blends realistic rendering with imaginative design elements, showcasing the potential for conceptual work."
+                    data-image-src="https://scontent.fcrk2-1.fna.fbcdn.net/v/t1.15752-9/589855462_1901201123840700_4601469841997019697_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=wIzDcFP8KAcQ7kNvwHNrmA4&_nc_oc=Adk8V_0XZxzB7QoRKOrVPLS_5kFUakTkRcF8hXAN2ENsDdyIpLFRaXJoT2xWRXJxNvQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-1.fna&oh=03_Q7cD4AHj8GOkUUByBKhwjgcglS-kbHOxt-tad2lHNoaj67Ahkg&oe=6957E797"
+                    >
+                    <img
+                        src="https://scontent.fcrk2-1.fna.fbcdn.net/v/t1.15752-9/589855462_1901201123840700_4601469841997019697_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=wIzDcFP8KAcQ7kNvwHNrmA4&_nc_oc=Adk8V_0XZxzB7QoRKOrVPLS_5kFUakTkRcF8hXAN2ENsDdyIpLFRaXJoT2xWRXJxNvQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fcrk2-1.fna&oh=03_Q7cD4AHj8GOkUUByBKhwjgcglS-kbHOxt-tad2lHNoaj67Ahkg&oe=6957E797"
+                        alt="Character Design"
+                        class="w-full h-auto object-cover rounded-lg mb-4 aspect-square"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x600/030213/ffffff?text=Art+Piece+6'"
+                    >
+                    <h3 class="text-lg font-semibold mb-1">Character Design</h3>
+                    <p class="text-sm text-muted-foreground">Traditional Drawing 6, 2025</p>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 btn-primary-hover">
+                    Commission Work
+                </a>
+            </div>
+        </section>
+        
+        <section id="contact" class="pt-16">
+            <h2 class="text-center mb-12 text-4xl font-extrabold text-primary">Contact me</h2>
+            <div class="max-w-2xl mx-auto bg-card p-8 rounded-lg shadow-xl border-border border transition-colors duration-500">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 font-medium">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded-lg border-border border input-background focus:ring-2 focus:ring-[var(--ring)] focus:outline-none transition-all duration-300" placeholder="Joshua Manaoat" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded-lg border-border border input-background focus:ring-2 focus:ring-[var(--ring)] focus:outline-none transition-all duration-300" placeholder="your_email@gmail.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 font-medium">Message/Inquiry</label>
+                        <textarea id="message" name="message" rows="5" class="w-full p-3 rounded-lg border-border border input-background focus:ring-2 focus:ring-[var(--ring)] focus:outline-none transition-all duration-300" placeholder="Tell me about your project" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all duration-300 btn-primary-hover">
+                        Send Message
+                    </button>
+                    <div id="status-message" class="p-4 rounded-lg text-center hidden font-medium" role="alert"></div>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-border text-center text-sm text-muted-foreground">
+                    <p>Or contact me on my social media:</p>
+                    <div class="flex justify-center space-x-4 mt-2">
+                        <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+                        <a href="#" class="hover:text-primary transition-colors">Twitter</a>
+                        <a href="#" class="hover:text-primary transition-colors">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="art-modal-overlay" class="modal-overlay">
+        <div id="art-modal-content" class="modal-content">
+            <button id="close-modal" class="absolute top-4 right-4 text-2xl font-bold p-1 leading-none text-foreground hover:text-destructive transition-colors">&times;</button>
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
+                <div class="flex-shrink-0 w-full lg:w-1/2 flex justify-center">
+                    <img id="modal-image" src="" alt="Zoomed Art Piece" class="modal-image">
+                </div>
+                <div class="space-y-4 w-full lg:w-1/2">
+                    <h3 id="modal-title" class="text-3xl font-extrabold text-primary"></h3>
+                    <p id="modal-medium" class="text-lg text-muted-foreground font-medium"></p>
+                    <hr class="border-border">
+                    <p id="modal-description" class="text-lg font-['Lora',_serif]"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+        const htmlElement = document.documentElement;
+
+        function setTheme(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                if (moonIcon) moonIcon.classList.add('hidden');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+                if (sunIcon) sunIcon.classList.add('hidden');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            setTheme(savedTheme === 'dark');
+        } else {
+            setTheme(prefersDark);
+        }
+
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                const isDark = htmlElement.classList.contains('dark');
+                setTheme(!isDark);
+            });
+        }
+
+
+        const contactForm = document.querySelector('#contact form');
+        const statusMessage = document.getElementById('status-message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            statusMessage.classList.remove('hidden', 'bg-destructive/10', 'text-destructive');
+            statusMessage.classList.add('bg-secondary', 'text-secondary-foreground');
+            statusMessage.textContent = 'Thank you for your message! Joshua Manaoat will be in touch soon.';
+
+            setTimeout(() => {
+                contactForm.reset();
+                statusMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        const modalOverlay = document.getElementById('art-modal-overlay');
+        const closeModalButton = document.getElementById('close-modal');
+        const artPieces = document.querySelectorAll('.art-piece');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMedium = document.getElementById('modal-medium');
+        const modalDescription = document.getElementById('modal-description');
+        const modalImage = document.getElementById('modal-image');
+        const modalContent = document.getElementById('art-modal-content');
+
+        const openModal = (piece) => {
+            const title = piece.dataset.title;
+            const medium = piece.dataset.medium;
+            const description = piece.dataset.description;
+            const imageSrc = piece.dataset.imageSrc;
+
+            modalTitle.textContent = title;
+            modalMedium.textContent = medium;
+            modalDescription.textContent = description;
+            modalImage.src = imageSrc;
+            modalImage.alt = title; 
+
+            modalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden'; 
+        };
+
+        const closeModal = () => {
+            modalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        artPieces.forEach(piece => {
+            piece.addEventListener('click', () => {
+                openModal(piece);
+            });
+        });
+
+        closeModalButton.addEventListener('click', closeModal);
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
